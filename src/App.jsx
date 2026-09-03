@@ -20,6 +20,11 @@ export default function App() {
           </article>
 
           <article className='habit-card'>
+            <h2>Estudar React</h2>
+            <p>Meta: 30 minutos</p>
+          </article>
+
+          <article className='habit-card'>
             <h2>Caminhar</h2>
             <p>Meta: 20  minutos </p>
           </article>
