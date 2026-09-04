@@ -7,34 +7,28 @@
   margin-bottom: 28px;
 }
 
-.body {
-  margin: 0;
-  min-height: 320px;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background: #222;
-  color: #1f2937;  
-}
-
-.app {
-  width: min(990px, 92%);
-  margin: 0 auto;
-  padding: 48px 0;
-}
-
-.eyebrow {
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
 .habit-list {
   display: grid;
   gap: 16px;
 }
 
 .habit-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   padding: 20px;
-  border: 1px solid #d7dde5;
+  border:  1px solid #d7dde5;
   border-radius: 12px;
   background: #ffffff;
+  color: black;
+}
+.habit-card.is-complete {
+  border-color: #78b87a;
+  background: #f0fff2;
+  color: black;
+}
+.habit-status{
+  font-weight: 700;
+  color: black;
 }

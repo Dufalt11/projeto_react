@@ -3,32 +3,26 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
+import Habitcard from './components/Habitscard'
+import { initialHabits } from './data/habits'
+import Habitlist from './components/HabitList'
 
 export default function App() {
+  const completedCount = initialHabits.filter(
+    (habit) => habit.completed,
+  ). length;
+  
   return(
     <main className='App'>
         <header className='hero'>
           <p className='eyebrow'>My Daily Habits </p>
-          <h1>Pequenos Hábitos</h1>
+          <h2>Pequenos Hábitos</h2>
           <p>Hoje começamos com um tela simples e funcional</p>
+          <p>
+            {completedCount} de {initialHabits.length} hábitos concluuídos.
+          </p>
         </header>
-
-        <section className='habit-list' aria-label='hábitos de hoje'>
-          <article className='habit-card'>
-            <h2>Beber Água</h2>
-            <p>Meta: 30 minutos</p>
-          </article>
-
-          <article className='habit-card'>
-            <h2>Estudar React</h2>
-            <p>Meta: 30 minutos</p>
-          </article>
-
-          <article className='habit-card'>
-            <h2>Caminhar</h2>
-            <p>Meta: 20  minutos </p>
-          </article>
-        </section>
+<Habitlist habits={initialHabits}/>
     </main>
   )
 }
