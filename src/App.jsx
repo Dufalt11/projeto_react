@@ -6,23 +6,34 @@ import './App.css'
 import Habitcard from './components/Habitscard'
 import { initialHabits } from './data/habits'
 import Habitlist from './components/HabitList'
+import Panel from './components/panel'
 
-export default function App() {
-  const completedCount = initialHabits.filter(
+export default function App(){
+  const CompletedCount = initialHabits.filter(
     (habit) => habit.completed,
-  ). length;
-  
-  return(
-    <main className='App'>
-        <header className='hero'>
-          <p className='eyebrow'>My Daily Habits </p>
-          <h2>Pequenos Hábitos</h2>
-          <p>Hoje começamos com um tela simples e funcional</p>
-          <p>
-            {completedCount} de {initialHabits.length} hábitos concluuídos.
-          </p>
-        </header>
-<Habitlist habits={initialHabits}/>
-    </main>
-  )
+  ).length
+function handlesShowDetails(habitId) {
+  const habit = initialHabits.find((item) => item.id === habitId)
+
+  if (habit) {
+    window.alert(`${habit.title} - Meta: ${habit.h}`)
+  }
+}
+return (
+  <main>
+    <header className='app'>
+      <p className='hero'> MY DAILY HABITS</p>
+      <h1>Pequenos hábitos, progresso visivel</h1>
+      <p>
+        {CompletedCount} de {initialHabits} hábitos concluidos
+      </p>
+    </header>
+    <Panel title="Habitos de hoje">
+      <Habitlist
+        habits={initialHabits}
+        onShowDetails={handlesShowDetails}
+      />
+    </Panel>
+  </main>
+ );
 }

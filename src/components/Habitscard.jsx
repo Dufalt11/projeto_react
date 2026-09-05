@@ -1,9 +1,5 @@
-const habit = {
-    title: "Beber Agua",
-    goal: "8 copos",
-}
 
-export default function Habitcard({title, goal, completed}) {
+export default function Habitcard({title, goal, completed, onShowDetails,}) {
     return (
         <article className={'habit-card ${completed ? "is-complete" : ""}'}>
             <div>
@@ -11,10 +7,10 @@ export default function Habitcard({title, goal, completed}) {
                 <p>Meta: {goal}</p>
             </div>
 
-            <span className="habit-status">
-                {completed ? "Concluído" : "pendente"}
-            </span>
+            <button type="button" onClick={() => onShowDetails(id)}>
+                Ver detalhes
+            </button>
         </article>
 
-    )
+    );
 }

@@ -21,14 +21,33 @@
   border:  1px solid #d7dde5;
   border-radius: 12px;
   background: #ffffff;
-  color: black;
+    
 }
 .habit-card.is-complete {
   border-color: #78b87a;
   background: #f0fff2;
-  color: black;
+
 }
 .habit-status{
   font-weight: 700;
-  color: black;
+  
+}
+
+.panel{
+  overflow: hidden;
+  border: 1px solid #d7dde5;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.panel-header, .panel-content{
+  padding: 20px;
+}
+
+.panel-header{
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.panel-header h2{
+  margin: 0;
 }
