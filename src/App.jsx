@@ -1,39 +1,47 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
-import Habitcard from './components/Habitscard'
 import { initialHabits } from './data/habits'
 import Habitlist from './components/HabitList'
 import Panel from './components/panel'
+import { useState } from 'react'
+import(useState)
 
-export default function App(){
+
+export default function App() {
+  const [habits, setHabits] = useState(initialHabits)
+
   const CompletedCount = initialHabits.filter(
-    (habit) => habit.completed,
+    (habit) => habit.completed
   ).length
-function handlesShowDetails(habitId) {
-  const habit = initialHabits.find((item) => item.id === habitId)
 
-  if (habit) {
-    window.alert(`${habit.title} - Meta: ${habit.h}`)
+  function handleToggleHabit(habitId) {
+    setHabits((currentHabits) =>
+      currentHabits.map((habit) =>
+        habit.id === habitId ? { ...habit, completed: !habit.completed }
+          : habit,
+      ),
+    );
   }
+
+
+  return (
+    <main className='app'>
+      <header className="hero">
+        <p className="eyebrow">MY DAILY HABITS</p>
+
+        <h1>Pequenos hábitos, progresso visível</h1>
+
+        <p>
+          {CompletedCount} de {initialHabits.length} hábitos concluídos
+        </p>
+      </header>
+
+      <Panel title="Hábitos de hoje">
+        <Habitlist
+          habits={habits}
+          onToggle={handleToggleHabit}
+        />
+      </Panel>
+    </main>
+  );
 }
-return (
-  <main>
-    <header className='app'>
-      <p className='hero'> MY DAILY HABITS</p>
-      <h1>Pequenos hábitos, progresso visivel</h1>
-      <p>
-        {CompletedCount} de {initialHabits} hábitos concluidos
-      </p>
-    </header>
-    <Panel title="Habitos de hoje">
-      <Habitlist
-        habits={initialHabits}
-        onShowDetails={handlesShowDetails}
-      />
-    </Panel>
-  </main>
- );
-}
+

@@ -1,6 +1,6 @@
 import Habitcard from './Habitscard'
 
-export default function Habitlist({ habits, onShowDetails }) {
+export default function Habitlist({ habits, onToggle }) {
   if (habits.length === 0) {
     return <p>Nenhum hábito cadastrado</p>
   }
@@ -11,7 +11,7 @@ export default function Habitlist({ habits, onShowDetails }) {
         <Habitcard
           key={habit.id}
           {...habit}
-          onShowDetails={onShowDetails}
+          onToggle={onToggle}
         />
       ))}
     </section>

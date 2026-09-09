@@ -1,14 +1,18 @@
 
-export default function Habitcard({title, goal, completed, onShowDetails,}) {
+export default function Habitcard({id, 
+    title, 
+    goal, 
+    completed, 
+    onToggle,}) {
     return (
-        <article className={'habit-card ${completed ? "is-complete" : ""}'}>
+        <article className={`habit-card ${completed ? "is-complete" : ""}`}>
             <div>
                 <h2>{title}</h2>
                 <p>Meta: {goal}</p>
             </div>
 
-            <button type="button" onClick={() => onShowDetails(id)}>
-                Ver detalhes
+            <button type="button" onClick={() => onToggle(id)}>
+                {completed ? "Desmarcar" : "Concluir"}
             </button>
         </article>
 
