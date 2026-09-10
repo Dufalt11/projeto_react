@@ -2,9 +2,27 @@
   box-sizing: border-box;
 }
 
+.body{
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+.app {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  padding: 48px 0;
+}
 
 .hero {
   margin-bottom: 28px;
+}
+
+.eyebrow {
+  font-weight: 700;
+  letter-spacing: 0,12em;
 }
 
 .habit-list {
@@ -40,7 +58,8 @@
   background: #ffffff;
 }
 
-.panel-header, .panel-content{
+.panel-header, 
+.panel-content{
   padding: 20px;
 }
 
@@ -50,4 +69,27 @@
 
 .panel-header h2{
   margin: 0;
+}
+
+.habit-form{
+  display: grid;
+  gap: 6px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field input{
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  font: inherit;
+}
+
+.form-error {
+  margin: 0;
+  color: #b42318;
+  font-weight: 700;
 }

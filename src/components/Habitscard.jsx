@@ -15,6 +15,5 @@ export default function Habitcard({id,
                 {completed ? "Desmarcar" : "Concluir"}
             </button>
         </article>
-
     );
 }
