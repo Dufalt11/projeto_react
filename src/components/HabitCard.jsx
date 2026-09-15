@@ -1,5 +1,4 @@
-
-export default function Habitcard({id, 
+export default function HabitCard({id, 
     title, 
     goal, 
     completed, 
